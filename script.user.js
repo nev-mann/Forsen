@@ -5,8 +5,8 @@
 // @description  GACHI THE WEEBS AWAY
 // @author       NevMan
 // @match        https://www.reddit.com/r/forsen/comments/*
-// @updateURL    
-// @downloadURL  
+// @updateURL    https://github.com/nev-mann/Reddit-forsen-script/raw/refs/heads/main/script.user.js
+// @downloadURL  https://github.com/nev-mann/Reddit-forsen-script/raw/refs/heads/main/script.user.js
 // ==/UserScript==
 
 
