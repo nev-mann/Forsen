@@ -21,7 +21,7 @@ function main() {
     let node = document.createElement("button");
     node.innerHTML = "Downvote all weebs";
     node.addEventListener('click', downvote);
-    document.getElementsByTagName("shreddit-post")[0].shadowRoot.appendChild(node);
+    document.getElementsByTagName("left-nav-top-section")[0].shadowRoot.appendChild(node);
 
     downvote();
 }
