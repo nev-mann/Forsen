@@ -12,21 +12,28 @@ const emoteToDownvote = "https://reddit-econ-prod-assets-permanent.s3.amazonaws.
 const guyToDownvote = "Vocaloid-Guy";
 
 let oldPage = "";
+let allDownvoteButton = document.createElement("button");
 
 function main() {
-    if (!window.location.toString().startsWith("https://www.reddit.com/r/forsen/comments/")) return;
-    if (oldPage == window.location.toString()) return;
-    oldPage = window.location.toString();
+    let button = document.getElementsByTagName("left-nav-top-section")[0].shadowRoot.getElementById("downvoteAllWeebs");
+    let currentPage = window.location.toString();
+    if (!currentPage.startsWith("https://www.reddit.com/r/forsen/comments/")) {
+        oldPage = "";
+        if (!!button) button.remove();
+        return;
+    }
+    document.getElementsByTagName("left-nav-top-section")[0].shadowRoot.appendChild(allDownvoteButton);
 
-    let node = document.createElement("button");
-    node.innerHTML = "Downvote all weebs";
-    node.addEventListener('click', downvote);
-    document.getElementsByTagName("left-nav-top-section")[0].shadowRoot.appendChild(node);
+    if (oldPage == currentPage) {
+        return;
+    }
+    oldPage = currentPage;
 
     downvote();
 }
 
 function downvote() {
+    console.log("Downvoting all weebs");
     let comments = document.getElementsByTagName("shreddit-comment");
     for (let i = 0; i < comments.length; i++) {
         if (comments[i].children[2].innerHTML.toString().includes(emoteToDownvote) || comments[i].__author == guyToDownvote) {
@@ -40,5 +47,8 @@ function downvote() {
 
 (function () {
     'use strict';
+    allDownvoteButton.innerHTML = "Downvote all weebs";
+    allDownvoteButton.id = "downvoteAllWeebs"
+    allDownvoteButton.addEventListener('click', downvote);
     setInterval(main, 2000);
 })();
