@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         forsenE
 // @namespace    http://tampermonkey.net/
-// @version      2024-12-09
+// @version      2
 // @description  GACHI THE WEEBS AWAY
 // @author       NevMan
 // @match        https://www.reddit.com/r/forsen/comments/*
