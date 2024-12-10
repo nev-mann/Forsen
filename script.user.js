@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Downvote weeb emotes
 // @namespace    http://tampermonkey.net/
-// @version      3
+// @version      4
 // @description  GACHI THE WEEBS AWAY
 // @author       NevMan
 // @match        https://www.reddit.com/*
@@ -22,6 +22,7 @@ function main() {
         if (!!button) button.remove();
         return;
     }
+    if (document.getElementById("comment-tree") == null) return;
     document.getElementsByTagName("left-nav-top-section")[0].shadowRoot.appendChild(allDownvoteButton);
 
     if (oldPage == currentPage) {
